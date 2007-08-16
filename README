@@ -1,0 +1,165 @@
+@database YGRip.Guide
+@$VER: YGRip[.guide] (c)2003 Diego Casorran - http://amiga.sf.net/
+@node main "Yahoo! Groups Ripper"
+
+@{JCenter}
+@{FG Highlight}@{b}
+
+                                                                              
+                                 #                                            
+ ########                  ####  #     ##########                             
+   ####     #######      ####### #        ###########                         
+     ###     ###        ###    ###         ##     ####                        
+      ###    ##        ###      ##         ##      ####                       
+      ###   ##        ###        #         ##       ###      ##               
+       ###  ##        ###        #         ##       ###      ###              
+        #####         ###                  ##     ####             #####      
+        ####          ###                  ##########       ###      #######  
+         ###         ####   #########      #########         ##      ###  ### 
+         ###          ###     #####        ##      ##        ##      ##    ## 
+         ###          ###      ###         ##      ###       ##      ##    ## 
+         ###          ###      ###         ##      ###       ##      ##    ## 
+         ###          ###      ###         ##       ##       ##      ###   ## 
+         ###           ###    ####         ##       ##       ##      ###  ### 
+         ###            ###  #####         ##       ##       ##      #######  
+        ######            #####  #      #######     #####   #####    ## ##    
+                                                                     ##       
+                                                                     ##       
+                                                                     ##       
+                                                                     ##       
+                                                                   ######     
+
+@{ub}@{FG Text}
+@{fg shine}@{b}
+The Yahoo! Groups Ripper
+~~^^^^^^^^^^^^^^^^^^^^^^^^^^~~@{ub}@{fg text}
+
+@{" Introduction      " link intro   }
+@{" Usage             " link usage   }
+@{" History           " link histo   }
+@{" Support           " link sup     }
+@endnode
+
+@node intro "Introduction.."
+@{LIndent 5}
+
+YGRip is a simple tool to retrieve [all] the mailing-lists messages of a Yahoo! Group.
+It saves the msgs to a unix-like file (to be easly imported from YAM, f.ex.).
+
+FEATURES:
+
+ o Easy to use
+ o many options
+ o Fast
+ o Localized
+ o etc...
+
+@endnode
+
+@node usage "How to use it"
+@{LIndent 5}
+
+ARGUMENTS:
+
+  GROUP/A
+	The group to fetch messages from.
+
+  SAVEPATH/A
+	Where to save the file.
+
+  MSG/N
+	The start msg number (0 if not given)
+
+  MSGSKIPCOUNT/N
+	How many msgs to jump before to think no more found and/or a error
+	happened (10 if not given)
+
+  MAXDATATORECV/N
+	As I dunno the msgs size of the group you are on, here you can change
+	the default value of 262144 (well, I think it is sufficient, but who
+	know ;), take care with this option (do not use lower values!)
+
+  UNIQUE/S
+	Receive only the given msg (or the first one)
+
+  DEBUG/S
+	print some detalled info about what are on process.
+
+  FSRC/S
+	Get the Full SouRCe (email/yahoo headers)
+
+  UNWRAP/S
+	(un)wrap Yahoo! option..  (really works? ;)
+
+  CTXT/S
+	Correct TeXT.- this option forces to do a second html-to-text conversion
+		( to fix problems with some ancient messages ).
+
+  NOENV/S
+	do not save a env var with the current msg number
+
+
+
+
+S T A R T I N G:
+@{LIndent 7}
+
+To get it working you need to set the enviroment variable 'YGRCookie' with
+your Yahoo! ID. (stored in cookies)
+
+If you are using IBrowse:
+
+(to be sure, first of all remove all your Yahoo! cookies)
+
+Sign in, enter in a group, open a message, now go to the cookie manager 
+window and lock for all the Yahoo! cookies,
+
+They are something like this:
+
+/	.yahoo.com	15-abr-10	B=jfjggt9ttytrt5&b=5&f=r
+
+and
+
+/	groups.yahoo.com	after session	tz=y=nick#8g&t=5425455
+
+
+get the data-part of each one (cut&paste) and insert then into the env var.
+
+With the above cookies the content of 'YGRCookie' will be:
+
+"B=jfjggt9ttytrt5&b=5&f=r; tz=y=nick#8g&t=5425455;"
+
+be sure, the data-parts must be separated by semicolons.
+
+if all the data parts are too long, you need to use an editor instead the
+command 'setenv'
+
+
+@endnode
+
+@node sup "Getting support"
+@{LIndent 8}
+
+To contact me, write to <dcr8520@amiga.org>
+
+The latest version can be downloaded from http://amiga.sf.net/nonunix.htm
+
+@endnode
+
+@node histo "History of changes"
+@{LIndent 5}
+
+	1.0.-	First public version
+	
+	1.1.-	Fixed a bug when the cookies are too long, now the max size
+		are 1024 Bytes (Thx to Jean-François Bachelet for bug-report)
+
+	1.2.-	Updated Yahoo! structure (Thx to Conn O'Griofa for warn me)
+
+	1.3.-	removed case-sensitive group name requeriment
+		removed attachments stuff
+		properly parse of "From:" field if it's a Yahoo! ID only..
+		added "To unsubscribe..." as end msg tag
+		some minor fixes and improvements...
+	
+@endnode
